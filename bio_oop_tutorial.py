@@ -30,9 +30,9 @@ class Carbohydrate(Biomolecule):
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
 
-class Nucleotide(Biomolecule):
+class Protein(Biomolecule):
     import data_tables
-    valid_characters = data_tables.nucleotide_valid_characters
+    valid_characters = data_tables.protein_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
     
@@ -44,37 +44,34 @@ class Nucleotide(Biomolecule):
         else:
             print(f'Sequence not mutated. {altered_seq} is not a valid character for the sequence type of {self.seq_name}')
 
-class Protein(Nucleotide):
+class Nucleotide(Protein):
     import data_tables
-    valid_characters = data_tables.protein_valid_characters
+    valid_characters = data_tables.nucleotide_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
     def mutate(self, pos, altered_seq, valid_characters=valid_characters):
         return super().mutate(pos, altered_seq, valid_characters)
 
+print('-'*25)
 bioseq = Biomolecule(seq_name='ABC_test', seq='BCDDD')
-
 print(bioseq)
-
 print(bioseq.is_valid())
-
 print(bioseq.extract_seq(3,1))
 
+print('-'*25)
 carb = Carbohydrate(seq_name='carb_q', seq='PQRS')
-
 print(carb)
 print(carb.is_valid())
 
+print('-'*25)
 dna = Nucleotide(seq_name='primer', seq='XYZ')
-
 print(dna.is_valid())
-
 print(dna)
 dna.mutate(2,'X')
 print(dna)
 
+print('-'*25)
 protein = Protein(seq_name='protein_x', seq='KLMN')
-
 print(protein)
 protein.mutate(2,'X')
 print(protein)
