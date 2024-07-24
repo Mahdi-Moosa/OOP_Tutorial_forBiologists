@@ -1,5 +1,4 @@
 class Biomolecule:
-
     def __init__(self, seq_name, seq) -> None:
         self.seq_name = seq_name
         self.seq = seq
@@ -51,6 +50,8 @@ class Nucleotide(Protein):
         return super().is_valid(valid_characters)
     def mutate(self, pos, altered_seq, valid_characters=valid_characters):
         return super().mutate(pos, altered_seq, valid_characters)
+    # def translate(self, codon_table = data_tables.codon_table):
+    #    return a protein sequence that will use codon table to translate nucleotide sequence to corresponding protein sequence. A Protein object can be returned.
 
 print('-'*25)
 bioseq = Biomolecule(seq_name='ABC_test', seq='BCDDD')
