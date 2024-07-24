@@ -7,7 +7,7 @@ class Biomolecule:
     def __str__(self):   
         return '>' + self.seq_name + '\n' + self.seq
     
-    valid_characters = ['A', 'B', 'C', 'D']
+    valid_characters = []
 
     def is_valid(self, valid_characters= valid_characters) -> bool:
         return len(set(self.seq) - set(valid_characters)) == 0
@@ -25,12 +25,14 @@ class Biomolecule:
     
 
 class Carbohydrate(Biomolecule):
-    valid_characters = ['P', 'Q', 'R', 'S']
+    import data_tables
+    valid_characters = data_tables.carbohydrate_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
 
 class Nucleotide(Biomolecule):
-    valid_characters = ['W' ,'X','Y','Z']
+    import data_tables
+    valid_characters = data_tables.nucleotide_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
     
@@ -43,7 +45,8 @@ class Nucleotide(Biomolecule):
             print(f'Sequence not mutated. {altered_seq} is not a valid character for the sequence type of {self.seq_name}')
 
 class Protein(Nucleotide):
-    valid_characters = ['K', 'L', 'M', 'N']
+    import data_tables
+    valid_characters = data_tables.protein_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
     def mutate(self, pos, altered_seq, valid_characters=valid_characters):
