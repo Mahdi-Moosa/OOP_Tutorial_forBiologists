@@ -43,15 +43,15 @@ class Protein(Biomolecule):
         else:
             print(f'Sequence not mutated. {altered_seq} is not a valid character for the sequence type of {self.seq_name}')
 
-class Nucleotide(Protein):
+class NucleicAcids(Protein):
     import data_tables
-    valid_characters = data_tables.nucleotide_valid_characters
+    valid_characters = data_tables.NucleicAcids_valid_characters
     def is_valid(self, valid_characters=valid_characters) -> bool:
         return super().is_valid(valid_characters)
     def mutate(self, pos, altered_seq, valid_characters=valid_characters):
         return super().mutate(pos, altered_seq, valid_characters)
     # def translate(self, codon_table = data_tables.codon_table):
-    #    return a protein sequence that will use codon table to translate nucleotide sequence to corresponding protein sequence. A Protein object can be returned.
+    #    return a protein sequence that will use codon table to translate nucleic acids sequence to corresponding protein sequence. A Protein object can be returned.
 
 print('-'*25)
 bioseq = Biomolecule(seq_name='ABC_test', seq='BCDDD')
@@ -65,7 +65,7 @@ print(carb)
 print(carb.is_valid())
 
 print('-'*25)
-dna = Nucleotide(seq_name='primer', seq='XYZ')
+dna = NucleicAcids(seq_name='primer', seq='XYZ')
 print(dna.is_valid())
 print(dna)
 dna.mutate(2,'X')
