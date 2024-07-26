@@ -61,5 +61,5 @@ classDiagram
 
 * Classes are implemented in the script `bio_oop_tutorial.py`.
 
-* Valid characters for carbohydrates, nucleotides, proteins can be provided as lists in the file `data_tables.py` file.
+* Valid characters for carbohydrates, nucleotides, proteins can be provided as lists in the file `data_tables.py`.
 * Translate function has not implemented yet. It is written as a pseudocode in the `bio_oop_tutorial.py` script, as of now.
