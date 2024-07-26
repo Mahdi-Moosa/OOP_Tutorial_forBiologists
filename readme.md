@@ -35,3 +35,5 @@ We are going to use the following insights to design tutorial for biology-inspir
 * **Carbohydrates**: Carbohydrates have names and sequences. 
 * **Proteins**: In addition to names and sequences, proteins can be mutated.
 * **Nucleic Acids**: In addition to (properties shared with proteins - names, sequences, mutations), nucleic acids can also be translated.
+
+Our tutorial is based on the aforementioned insights. We will implement a base-class for Biomolecules. Carbohydrates and Proteins classes will inherit from the Biomolecules base-classes. For proteins, we will add a method to mutate protein sequences. Then, we will implement NucleicAcids class by inheriting from the Protein class (this means nucleic acids will also have the capacity to mutate). Finally, NucleicAcids should have the method to translate into a protein sequence. I have not yet implemented the translate feature, it is just shown as a pseudocode.
